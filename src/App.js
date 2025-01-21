@@ -1,9 +1,13 @@
+import MovieCard from "./movieCard";
+import index from "./index.css"
 
 function App() {
   return (
-    <div className="App">
+    <>
     <h1>Music Webapp</h1>
-    </div>
+
+    <MovieCard/>
+    </>
   );
 }
 
