@@ -122,3 +122,11 @@ footer.starCount {
   text-shadow: none;
   margin: 5px;
 }
+
+.added-cart-btn{
+  
+ 
+  color:  #251bb1;
+  border: 1px solid #251bb1 !important;
+  margin: 5px;
+}
