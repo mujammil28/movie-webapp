@@ -1,12 +1,11 @@
-import MovieCard from "./movieCard";
-import index from "./index.css"
 
+import index from "./index.css"
+import MovieList from "./movieList";
 function App() {
   return (
     <>
-    <h1>Music Webapp</h1>
-
-    <MovieCard/>
+    <h1>Movies Webapp</h1>
+    <MovieList/>
     </>
   );
 }

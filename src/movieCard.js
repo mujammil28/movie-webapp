@@ -3,39 +3,8 @@ import { Component } from "react";
 
 export default class MovieCard extends Component{
 
-  constructor(){
-    super();
 
-    this.state={
-      img:"https://i.pinimg.com/736x/21/d6/21/21d62106e83e8bddfa41024dfc195356.jpg",
-        title:"The Avengers",
-        plot:"It is action and animation dilled movie.",
-        price:"199",
-        rating:"8.9",
-        stars:0,
-        fav:true,
-        cart:true,
-    }
-  }
 
-  addStar=()=>{
-      console.log(this.state);
-
-     // Form-1 // this.setState({
-
-      //   stars:this.state.stars+0.5,
-
-      // })
-      //form-2
-
-      this.setState((prevState)=>{
-          
-        if(prevState.stars<=4.5){return {
-            stars:prevState.stars+0.5,
-          }}
-      })
-
-  }
   
       removeStar=()=>{
 
@@ -66,7 +35,9 @@ export default class MovieCard extends Component{
 
 
 render(){
-  const {img,title, plot, price, rating, stars, fav, cart}=this.state;
+ 
+  const {img,title, plot, price, rating, stars, fav, cart}=this.props.movies;
+  const {movies,addStar,removeStar,handleCart,handleFav}=this.props;
 
     return (
       <div className="main">
@@ -84,7 +55,7 @@ render(){
         <div className="rating">{rating}</div>
         <div className="star-dis">
         
-        <img className="str-btn"  onClick={this.removeStar}
+        <img className="str-btn"  onClick={()=>removeStar(movies)}
          src="https://cdn-icons-png.flaticon.com/128/1828/1828901.png"/>
         
         &nbsp;&nbsp; 
@@ -93,21 +64,21 @@ render(){
         src="https://cdn-icons-png.flaticon.com/128/1828/1828884.png"/>
       &nbsp;&nbsp;
       
-      <img className="str-btn"  onClick={this.addStar}
+      <img className="str-btn"  onClick={()=>addStar(movies)}
       src="https://cdn-icons-png.flaticon.com/128/3524/3524388.png"/>
 
       &nbsp;&nbsp;&nbsp;<span>{stars}</span>
         </div>
     
        
-       {fav?<button className="favourite-btn" onClick={this.changeFav}>
-       Favorite</button>:<button className="unfavourite-btn" onClick={this.changeFav}>
+       {fav?<button className="favourite-btn" onClick={()=>handleFav(movies)}>
+       Favorite</button>:<button className="unfavourite-btn" onClick={()=>handleFav(movies)}>
        UnFavorite</button>} 
           
-        {cart?<button className="cart-btn" onClick={this.changeCart}>
+        {cart?<button className="cart-btn" onClick={()=>handleCart(movies)}>
           Add to cart
           </button>:
-        <button className="added-cart-btn" onClick={this.changeCart}>
+        <button className="added-cart-btn" onClick={()=>handleCart(movies)}>
           Remove 
           </button>}
         
