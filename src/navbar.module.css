@@ -1,0 +1,52 @@
+.headerdiv{
+    height: 70px;
+	background: linear-gradient(170deg, #1bc059, #0d47a1);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: fixed;
+    width: 100%;
+    top: 0px;
+    margin-bottom: 100px;
+    z-index: 1;
+}
+
+
+.headertitle{
+    font-size: 25px;
+    color: #fff;
+    font-weight: 600;
+    font-family: 'Times New Roman', Times, serif;
+    text-transform: uppercase;
+    margin-left: 20px ;
+    &:hover{
+                font-size:26px
+    };
+
+}
+
+.cartimg{
+    height: 48px;
+    margin-right: 20px;
+}
+
+.headercart{
+    position: relative;
+    cursor: pointer;
+}
+
+
+#cartcount{
+    background: yellow;
+    border-radius: 50%;
+    padding: 4px 8px;
+    position: absolute;
+    right: 10px;
+    top: -5px;
+    font-size: 12px;
+    visibility: visible;
+}
+
+#cartcountvisible{
+    visibility: hidden;
+}
