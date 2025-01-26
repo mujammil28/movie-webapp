@@ -6,10 +6,11 @@ import { movies } from "./moviesData";
 import React from "react";
 class App extends React.Component{
   constructor(){
+    let cartCount=0;
           super()
           this.state={
-               cartCount:0,
-              movies:movies
+               cartCount,
+               movies,
             
           }
         }
@@ -60,13 +61,22 @@ class App extends React.Component{
   
   
         handleCart=(movie)=>{
-           const {movies}=this.state
+           let {movies,cartCount}=this.state
   
            const mid=movies.indexOf(movie);
+           console.log(movies[mid].cart)
           
+           if(movies[mid].cart){
+            cartCount+=1;
+           }else{
+            cartCount-=1;
+           }
+
            movies[mid].cart=!movies[mid].cart
+           
            this.setState({
-              movies
+              movies,
+              cartCount
           });
   
         }
@@ -74,18 +84,18 @@ class App extends React.Component{
   
   render(){ 
 
-          const {movies}=this.state
+          const {movies,cartCount}=this.state
   
     return (
       <>
       <Navbar  
-      />
+        cartCount={cartCount}/>
       <MovieList movies={movies}
 
-addStars={this.handleStar}
-remoStars={this.removeStar}
-handleCart={this.handleCart}
-handleFav={this.handleFav}
+        addStars={this.handleStar}
+        remoStars={this.removeStar}
+        handleCart={this.handleCart}
+        handleFav={this.handleFav}
 />
       </>
     );

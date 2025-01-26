@@ -2,8 +2,6 @@ import { Component } from "react";
 import styles from "./navbar.module.css"
 
 
-
-
 export default class Navbar extends Component{
 
 
@@ -14,7 +12,8 @@ export default class Navbar extends Component{
 //    const checkVisible=()=>{
 //     visible?"cartcount":"cartcountvisible"
 //     }
-
+                const {cartCount}=this.props
+                console.log(this.props)
             return(
 
                     <>
@@ -24,8 +23,8 @@ export default class Navbar extends Component{
                         </div>
                         <div className={styles.headercart}>
                             <img className={styles.cartimg} src="https://cdn-icons-png.flaticon.com/128/3643/3643914.png" alt="cart"/>
-                           {visible?<span id={styles.cartcount}>1</span>:
-                            <span id={styles.cartcountvisible}>0</span>}
+                           {visible?<span id={styles.cartcount}>{cartCount}</span>:
+                            <span id={styles.cartcountvisible}>{cartCount}</span>}
                         </div>
                      
                         </div>
